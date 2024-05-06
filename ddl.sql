@@ -1,8 +1,9 @@
 CREATE DATABASE bdEscolaIdiomas
 GO
 
+
 --USE master
---DROP DATABASE bdEstoque
+--DROP DATABASE bdEscolaIdiomas
 
 USE bdEscolaIdiomas
 
@@ -30,7 +31,7 @@ CREATE TABLE tbAluno (
 	codAluno INT PRIMARY KEY IDENTITY (1, 1)
 	, nomeAluno VARCHAR(200)
 	, dataNascAluno DATETIME
-	, rgAluno CHAR(11)
+	, rgAluno CHAR(12)
 	, naturalidadeAluno CHAR(2)
 )
 
