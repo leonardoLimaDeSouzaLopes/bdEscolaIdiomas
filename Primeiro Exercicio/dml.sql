@@ -1,6 +1,4 @@
 USE bdEscolaIdiomas
-GO
-
 
 INSERT INTO tbAluno
 	(nomeAluno, dataNascAluno , rgAluno , naturalidadeAluno)
