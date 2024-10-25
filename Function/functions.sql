@@ -20,7 +20,7 @@ CREATE FUNCTION fc_diaSemana(@Data DATE)
 				END
 			IF @Dia = 3
 				BEGIN
-					SET @DiaSemana = 'TERÇA-FEIRA'
+					SET @DiaSemana = 'TERï¿½A-FEIRA'
 				END
 			IF @Dia = 4
 				BEGIN
@@ -41,7 +41,7 @@ CREATE FUNCTION fc_diaSemana(@Data DATE)
 			RETURN @DiaSemana
 		END
 
-SELECT MinhaFuncao = dbo.fc_diaSemana(dataMatricula  INT) FROM tbMatricula
+SELECT MinhaFuncao = dbo.fc_diaSemana(dataMatricula) FROM tbMatricula
 
 --B
 CREATE FUNCTION fc_tamanhoCurso(@Tempo INT)
@@ -52,7 +52,7 @@ CREATE FUNCTION fc_tamanhoCurso(@Tempo INT)
 
 			IF(@Tempo < 1000)
 				BEGIN
-					SET @TamanhoCurso = 'CURSO RÁPIDO'
+					SET @TamanhoCurso = 'CURSO Rï¿½PIDO'
 				END
 			ELSE
 				BEGIN
@@ -85,3 +85,14 @@ CREATE FUNCTION fc_precoCurso(@Preco MONEY)
 		END
 
 SELECT MinhaFuncao = dbo.fc_precoCurso(valorCurso) FROM tbCurso
+
+--D
+
+CREATE FUNCTION fc_data(@Data DATE)
+	RETURNS CHAR(10)
+	AS
+		BEGIN
+			RETURN CONVERT(CHAR(10), @Data, 103)
+		END
+
+SELECT dbo.fc_data(dataMatricula) FROM tbMatricula
