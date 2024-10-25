@@ -1,4 +1,5 @@
 USE bdEscolaIdiomas
+GO
 
 --A
 CREATE FUNCTION fc_diaSemana(@Data DATE)
@@ -20,7 +21,7 @@ CREATE FUNCTION fc_diaSemana(@Data DATE)
 				END
 			IF @Dia = 3
 				BEGIN
-					SET @DiaSemana = 'TER�A-FEIRA'
+					SET @DiaSemana = 'TERCA-FEIRA'
 				END
 			IF @Dia = 4
 				BEGIN
@@ -41,7 +42,8 @@ CREATE FUNCTION fc_diaSemana(@Data DATE)
 			RETURN @DiaSemana
 		END
 
-SELECT MinhaFuncao = dbo.fc_diaSemana(dataMatricula) FROM tbMatricula
+SELECT MinhaFuncao = dbo.fc_diaSemana('dataMatricula') FROM tbMatricula
+--DROP FUNCTION fc_diaSemana
 
 --B
 CREATE FUNCTION fc_tamanhoCurso(@Tempo INT)
@@ -52,7 +54,7 @@ CREATE FUNCTION fc_tamanhoCurso(@Tempo INT)
 
 			IF(@Tempo < 1000)
 				BEGIN
-					SET @TamanhoCurso = 'CURSO R�PIDO'
+					SET @TamanhoCurso = 'CURSO RAPIDO'
 				END
 			ELSE
 				BEGIN
@@ -63,7 +65,8 @@ CREATE FUNCTION fc_tamanhoCurso(@Tempo INT)
 
 		END
 
-SELECT MinhaFuncao = dbo.fc_tamanhoCurso(cargaHorariaCurso) FROM tbCurso
+SELECT MinhaFuncao = dbo.fc_tamanhoCurso('cargaHorariaCurso') FROM tbCurso
+--DROP FUNCTION fc_tamanhoCurso
 
 --C
 CREATE FUNCTION fc_precoCurso(@Preco MONEY)
@@ -84,7 +87,8 @@ CREATE FUNCTION fc_precoCurso(@Preco MONEY)
 			RETURN @PrecoCurso
 		END
 
-SELECT MinhaFuncao = dbo.fc_precoCurso(valorCurso) FROM tbCurso
+SELECT MinhaFuncao = dbo.fc_precoCurso('valorCurso') FROM tbCurso
+--DROP FUNCTION fc_precoCurso
 
 --D
 
@@ -96,3 +100,4 @@ CREATE FUNCTION fc_data(@Data DATE)
 		END
 
 SELECT dbo.fc_data(dataMatricula) FROM tbMatricula
+--DROP FUNCTION fc_data
